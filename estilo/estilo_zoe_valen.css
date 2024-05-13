@@ -1,0 +1,140 @@
+body {
+    background-image: url("../Imagenes/fondoweb.jpg");
+    background-color: grey;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: 100% 100%;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <450>;
+    font-style: normal;
+    }
+.container {
+    position: relative;
+    display: inline-block;
+}
+
+.image {
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    vertical-align: middle;
+}
+
+.title {
+    display: inline-block;
+    vertical-align: middle;
+    position: -webkit-sticky;
+    left: 100%;
+    top: 0; /* Alineado con la parte superior de la imagen */
+    margin-left: 75px; /* Espacio entre la imagen y el título */
+    font-size: 65px;
+    color:#fbcb9b;
+    font-family: "Poetsen One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-shadow: 7px 5px #025369b9; 
+}
+div h3{
+    
+    margin-left: auto;
+    margin-right: 20%;
+    text-align: right;
+    color:#fbcb9b;
+    text-shadow: 2px 1px #025369b9;
+}
+div h4{
+    width: 30%;
+    margin-left: auto;
+    margin-right: 10%;
+    display: flex;
+    justify-content: flex-start;
+    text-align: right;
+    color: #fbcb9b;
+    text-shadow: 3px 2px #025369b9;
+}
+
+#datos{
+    width: 42%;
+    color: #fbcb9b;
+    text-shadow: 3px 2px #025369b9;
+    margin-top: -40%;
+    margin-left: 2%;
+    margin-right: auto;
+    font-size: 18px;
+    font-family: "Montserrat", sans-serif;
+}
+
+footer{
+    text-align: right;
+}
+
+.recomendaciones{
+    width: 42%;
+    text-align: right;
+    margin-right: 3%;
+    margin-left: auto;
+    font-size: 15px;
+    color:#fbcb9b;
+    font-weight: 400;
+    font-style: normal;
+    font-family: "Poetsen One", sans-serif;
+    text-shadow: 2px 3px #025369b9; 
+}
+
+footer a{
+    margin: 10px;
+    color: black;
+    text-decoration: none;
+    font-family: "Poetsen One", sans-serif;
+}
+
+footer a:hover{
+    text-decoration: underline;
+    color: #025369b9;
+}
+
+table {
+border-collapse: collapse;
+width: 35%; 
+margin-top: 50px;
+margin-right: auto;
+margin-left: 10px;
+margin-bottom: auto;
+}
+
+th, td {
+    text-align: center;
+    padding: 8px;
+    border: 1px solid white;
+}
+
+th {
+    background-color:white;
+}
+
+.bajo-peso {
+    background-color: #9fa9f6; 
+}
+
+.adecuado {
+    background-color: #82fab6 ;
+}
+
+.sobrepeso {
+    background-color: rgb(255, 255, 147); 
+}
+
+.obesidad-1 {
+    background-color: #fbcd6f; 
+}
+
+.obesidad-2 {
+    background-color: #f78e6b; 
+}
+
+.obesidad-3 {
+    background-color: #ff7041; 
+    
+}
