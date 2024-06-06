@@ -1,0 +1,53 @@
+body{
+    background-image: url("../Imagenes/fondo2.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%, 100%;
+
+}
+.image {
+    margin-top: -500px;
+    height: 95px;
+    width: 95px;
+    margin-left: 1px;
+}
+.title {
+    margin-top: 5px;
+    margin-bottom: -5px;
+    vertical-align: middle;
+    margin-left: 120px;
+    font-size: 65px;
+    color:#fbcb9b;
+    font-family: "Poetsen One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-shadow: 7px 5px #025369b9;
+}
+footer{
+    text-align: right;
+}
+.recomendaciones{
+    width: 42%;
+    text-align: right;
+    margin-right: 3%;
+    margin-left: auto;
+    font-size: 15px;
+    color:#fbcb9b;
+    font-weight: 400;
+    font-style: normal;
+    font-family: "Poetsen One", sans-serif;
+
+}
+
+footer a{
+    margin: 10px;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: "Poetsen One", sans-serif;
+}
+
+footer a:hover{
+    text-decoration: underline;
+    color: #025369b9;
+}

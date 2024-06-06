@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="Zoe Mitter y Valentin Boiero">
     <meta name="¡Calcula tu Índice de Masa Corporal (IMC) fácilmente con nuestra calculadora en línea! El IMC es una medida simple que te ayuda a evaluar tu peso en relación con tu altura. Obtén una evaluación rápida de tu estado nutricional y aprende más sobre tu salud hoy mismo.">
     <title>Calculadora IMC</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="C:\Users\valen\OneDrive\Escritorio\Lab 2\ejercicios2024-valenboiero03\proyecto2024-boiero-mitter\Imagenes\icono_y_favicon del_proyecto.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Imagenes/icono_y_favicon%20del_proyecto.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Teachers:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poetsen+One&family=Teachers:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="estilo/estilo_zoe_valen.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Teachers:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poetsen+One&family=Teachers:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilo/estilo_zoe_valen.css" type="text/css">
+    <script type="text/javascript" src="funciones_js/funcionesproyecto.js"></script>
 <footer>
     <div class="recomendaciones">
     Recomendacion de nutricionistas en Cordoba:
@@ -20,35 +21,32 @@
     <a href="https://nutricioncordoba.com.ar/" target="_blank">Nutriser</a>
     <a href="https://cordobanutricion.com/" target="_blank">Cordoba nutricion</a>
     <a href="https://www.nutricionistacordoba.com.ar/?utm_source=google&utm_medium=organic&utm_campaign=gmb" target="_blank">Luciana Pozzer</a>
-    
 </footer>
-
 </head>
 <body>
-    <div class="container">
-        <img class="image" src="C:\Users\valen\OneDrive\Escritorio\Lab 2\ejercicios2024-valenboiero03\proyecto2024-boiero-mitter\Imagenes\icono_y_favicon del_proyecto.png" width="85" height="85" alt="icono_y_favicon">
+    <header>
         <h1 class="title">IMC</h1>
-    </div>
+        <img class="image" src="Imagenes/icono_y_favicon%20del_proyecto.png" width="85" height="85" alt="icono_y_favicon">
+    </header>
     <div>
-        <h3>¿Que es el IMC de una persona?</h3>
+        <h3>¿Qué es el IMC de una persona?</h3>
         <h4>El Índice de Masa Corporal (IMC) es una herramienta simple y ampliamente utilizada para estimar la cantidad de grasa corporal de una persona, basándose en su peso y estatura. Es una fórmula estándar que se utiliza en todo el mundo para categorizar a las personas en diferentes rangos de peso, desde bajo peso hasta obesidad, ayudando a identificar posibles riesgos para la salud asociados con el peso corporal.</h4>
-        <h3>¿Para que sirve el IMC?</h3>
+        <h3>¿Para qué sirve el IMC?</h3>
         <h4>-Evaluación de riesgos de salud: Un IMC alto puede estar asociado con un mayor riesgo de enfermedades crónicas como diabetes tipo 2, enfermedades cardíacas, apnea del sueño y ciertos tipos de cáncer.</h4>
         <h4>-Herramienta de screening: El IMC es utilizado por profesionales de la salud para identificar posibles problemas de salud en poblaciones y realizar recomendaciones basadas en el peso.</h4>
         <h4>-Monitorización de cambios de peso: El IMC puede ser útil para monitorizar cambios en el peso a lo largo del tiempo y evaluar la efectividad de diferentes intervenciones de dieta y ejercicio.</h4>
     </div>
-
     <div id="datos">
         <h2>Calculadora de Índice de Masa Corporal (IMC)</h2>
-        <form id="imcForm">
+        <form name="imcForm">
             <label for="peso">Peso (kg):</label>
-            <input type="number" id="peso" name="peso" maxlength="250" placeholder="Ingrese su peso en kg" required><br><br>
+            <input type="number" id="peso" name="peso" maxlength="250" placeholder="Ingrese su peso en kg" required>
             <label for="altura">Altura (cm):</label>
-            <input type="number" id="altura" name="altura" maxlength="250" placeholder="Ingrese su altura en cm" required><br><br>
+            <input type="number" id="altura" name="altura" maxlength="250" placeholder="Ingrese su altura en cm" required >
             <input type="radio" id="femenino" name="genero" value="femenino" required>
-            <label for="femenino">Femenino</label><br><br>
-            <input type="radio" id="masculino" name="genero" value="masculino" required>
-            <label for="masculino">Masculino</label><br><br>
+            <label for="femenino">Femenino</label>
+            <input type="radio" id="masculino" name="genero" value="masculino" required >
+            <label for="masculino">Masculino</label>
             <button type="button" onclick="calcularIMC()">Calcular IMC</button>
         </form>
     </div> 
@@ -84,5 +82,5 @@
     </table>
     <canvas>
 
-    </canvas>
-</body>   
+    </canvas>
+</bo
