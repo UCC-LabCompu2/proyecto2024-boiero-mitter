@@ -36,6 +36,8 @@ let calcularIMC=()=> {
 }
 
 let mostrarImc=()=>{
-    console.log(localStorage.getItem("imc"));
-    console.log(localStorage.getItem("clasificacion"));
+    const imc=localStorage.getItem("imc");
+    const clasificacion=localStorage.getItem("clasificacion");
+    document.getElementById("clasif").innerText=`Su indice IMC es: ${Math.round(imc*100)/100} con el valor ${clasificacion}`;
+
 }
