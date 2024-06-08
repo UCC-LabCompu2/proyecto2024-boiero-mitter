@@ -10,14 +10,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poetsen+One&family=Teachers:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="estilo/estilo_zoe_valen.css" type="text/css">
-    <script type="text/javascript" src="funciones_js/funcionesproyecto.js"></script>
+    <link rel="stylesheet" href="Estilos/estilo_zoe_valen.css" type="text/css">
+    <script type="text/javascript" src="Funciones/funcionesproyecto.js"></script>
 </head>
-<body>
-    <header>
-        <h1 class="title">IMC</h1>
-        <img class="image" src="Imagenes/icono_y_favicon%20del_proyecto.png" width="85" height="85" alt="icono_y_favicon">
-    </header>
+<body class="pagina1">
+<header>
+    <h1 class="title">IMC</h1>
+    <img class="image" src="Imagenes/icono_y_favicon%20del_proyecto.png" width="85" height="85" alt="icono_y_favicon">
+</header>
+<main>
     <div>
         <h3>¿Qué es el IMC de una persona?</h3>
         <h4>El Índice de Masa Corporal (IMC) es una herramienta simple y ampliamente utilizada para estimar la cantidad de grasa corporal de una persona, basándose en su peso y estatura. Es una fórmula estándar que se utiliza en todo el mundo para categorizar a las personas en diferentes rangos de peso, desde bajo peso hasta obesidad, ayudando a identificar posibles riesgos para la salud asociados con el peso corporal.</h4>
@@ -26,61 +27,62 @@
         <h4>-Herramienta de screening: El IMC es utilizado por profesionales de la salud para identificar posibles problemas de salud en poblaciones y realizar recomendaciones basadas en el peso.</h4>
         <h4>-Monitorización de cambios de peso: El IMC puede ser útil para monitorizar cambios en el peso a lo largo del tiempo y evaluar la efectividad de diferentes intervenciones de dieta y ejercicio.</h4>
     </div>
-    <div id="datos">
-        <h2>Calculadora de Índice de Masa Corporal (IMC)</h2>
-        <form name="imcForm">
-            <label for="peso">Peso (kg):</label>
-            <input type="number" id="peso" name="peso" maxlength="250" placeholder="Ingrese su peso en kg" required>
-            <label for="altura">Altura (cm):</label>
-            <input type="number" id="altura" name="altura" maxlength="250" placeholder="Ingrese su altura en cm" required >
-            <input type="radio" id="femenino" name="genero" value="femenino" required>
-            <label for="femenino">Femenino</label>
-            <input type="radio" id="masculino" name="genero" value="masculino" required >
-            <label for="masculino">Masculino</label>
-            <button type="button" onclick="calcularIMC()">Calcular IMC</button>
-        </form>
-    </div> 
-    <table>
+</main>
+<div id="datos">
+    <h2>Calculadora de Índice de Masa Corporal (IMC)</h2>
+    <form name="imcForm">
+        <label for="peso">Peso (kg):</label>
+        <input type="number" id="peso" name="peso" maxlength="250" placeholder="Ingrese su peso en kg" required>
+        <label for="altura">Altura (cm):</label>
+        <input type="number" id="altura" name="altura" maxlength="250" placeholder="Ingrese su altura en cm" required >
+        <input type="radio" id="femenino" name="genero" value="femenino" required>
+        <label for="femenino">Femenino</label>
+        <input type="radio" id="masculino" name="genero" value="masculino" required >
+        <label for="masculino">Masculino</label>
+        <button type="button" onclick="calcularIMC()">Calcular IMC</button>
+    </form>
+</div>
+<table>
     <caption>Categorias IMC</caption>
-        <tr>
-            <th>IMC</th>
-            <th>Clasificación de la OMS</th>
-        </tr>
-        <tr class="bajo-peso">
-            <td>&lt;18.5</td>
-            <td>Bajo peso</td>
-        </tr>
-        <tr class="adecuado">
-            <td>18.5-24.9</td>
-            <td>Adecuado</td>
-        </tr>
-        <tr class="sobrepeso">
-            <td>25.0-29.9</td>
-            <td>Sobrepeso</td>
-        </tr>
-        <tr class="obesidad-1">
-            <td>30.0-34.9</td>
-            <td>Obesidad grado 1</td>
-        </tr>
-        <tr class="obesidad-2">
-            <td>35.0-39.9</td>
-            <td>Obesidad grado 2</td>
-        </tr>
-        <tr class="obesidad-3">
-            <td>&gt;40</td>
-            <td>Obesidad grado 3</td>
-        </tr>
-    </table>
-    <canvas>
+    <tr>
+        <th>IMC</th>
+        <th>Clasificación de la OMS</th>
+    </tr>
+    <tr class="bajo-peso">
+        <td>&lt;18.5</td>
+        <td>Bajo peso</td>
+    </tr>
+    <tr class="adecuado">
+        <td>18.5-24.9</td>
+        <td>Adecuado</td>
+    </tr>
+    <tr class="sobrepeso">
+        <td>25.0-29.9</td>
+        <td>Sobrepeso</td>
+    </tr>
+    <tr class="obesidad-1">
+        <td>30.0-34.9</td>
+        <td>Obesidad grado 1</td>
+    </tr>
+    <tr class="obesidad-2">
+        <td>35.0-39.9</td>
+        <td>Obesidad grado 2</td>
+    </tr>
+    <tr class="obesidad-3">
+        <td>&gt;40</td>
+        <td>Obesidad grado 3</td>
+    </tr>
+</table>
+<canvas>
 
-    </canvas>
-    <nav>
-        <div class="recomendaciones">
-            Recomendacion de nutricionistas en Cordoba:
-        </div>
-        <a href="https://nutricioncordoba.com.ar/" target="_blank">Nutriser</a>
-        <a href="https://cordobanutricion.com/" target="_blank">Cordoba nutricion</a>
-        <a href="https://www.nutricionistacordoba.com.ar/?utm_source=google&utm_medium=organic&utm_campaign=gmb" target="_blank">Luciana Pozzer</a>
-    </nav>
+</canvas>
+<nav>
+    <div class="recomendaciones">
+        Recomendacion de nutricionistas en Cordoba:
+    </div>
+    <a href="https://nutricioncordoba.com.ar/" target="_blank">Nutriser</a>
+    <a href="https://cordobanutricion.com/" target="_blank">Cordoba nutricion</a>
+    <a href="https://www.nutricionistacordoba.com.ar/?utm_source=google&utm_medium=organic&utm_campaign=gmb" target="_blank">Luciana Pozzer</a>
+</nav>
 </body>
 </html>

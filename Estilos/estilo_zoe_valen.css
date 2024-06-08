@@ -1,5 +1,5 @@
-body {
-    background-image: url("../Imagenes/fondoweb.jpg");
+.pagina1 {
+    background-image: url("../Imagenes/fondo.jpg");
     background-color: grey;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -9,35 +9,35 @@ body {
     font-optical-sizing: auto;
     font-weight: 450;
     font-style: normal;
-    }
-.container {
-    position: relative;
-    display: inline-block;
 }
+.pagina2{
+    background-image: url("../Imagenes/fondo2.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%, 100%;
 
+}
 .image {
-    display: inline-block;
-    height: 100px;
-    width: 100px;
-    vertical-align: middle;
+    margin-top: -500px;
+    height: 95px;
+    width: 95px;
+    margin-left: 1px;
 }
-
 .title {
-    display: inline-block;
+    margin-top: 5px;
+    margin-bottom: -5px;
     vertical-align: middle;
-    position: -webkit-sticky;
-    left: 100%;
-    top: 0; /* Alineado con la parte superior de la imagen */
-    margin-left: 75px; /* Espacio entre la imagen y el título */
+    margin-left: 120px;
     font-size: 65px;
     color:#fbcb9b;
     font-family: "Poetsen One", sans-serif;
     font-weight: 400;
     font-style: normal;
-    text-shadow: 7px 5px #025369b9; 
+    text-shadow: 7px 5px #025369b9;
 }
 div h3{
-    
+
     margin-left: auto;
     margin-right: 20%;
     text-align: right;
@@ -59,14 +59,42 @@ div h4{
     width: 42%;
     color: #fbcb9b;
     text-shadow: 3px 2px #025369b9;
-    margin-top: -40%;
+    margin-top: -38%;
     margin-left: 2%;
     margin-right: auto;
     font-size: 18px;
     font-family: "Montserrat", sans-serif;
 }
 
-footer{
+form {
+    display: flex;
+    flex-direction: column;
+}
+form > label {
+    margin-top: 10px;
+}
+form > input[type="number"],
+form > button {
+    margin-top: 5px;
+    padding: 5px;
+    font-size: 16px;
+}
+form > div {
+    margin-top: 10px;
+}
+
+form > div > label {
+    margin-right: 10px;
+}
+
+form > input[type="radio"]{
+    margin-top: 20px;
+    margin-left: -350px;
+    margin-bottom: -30px;
+}
+
+nav{
+
     text-align: right;
 }
 
@@ -80,28 +108,27 @@ footer{
     font-weight: 400;
     font-style: normal;
     font-family: "Poetsen One", sans-serif;
-    text-shadow: 2px 3px #025369b9; 
 }
 
-footer a{
+nav a{
     margin: 10px;
-    color: black;
+    color: #ffffff;
     text-decoration: none;
     font-family: "Poetsen One", sans-serif;
 }
 
-footer a:hover{
+nav a:hover{
     text-decoration: underline;
     color: #025369b9;
 }
 
 table {
-border-collapse: collapse;
-width: 35%; 
-margin-top: 50px;
-margin-right: auto;
-margin-left: 10px;
-margin-bottom: auto;
+    border-collapse: collapse;
+    width: 35%;
+    margin-top: 50px;
+    margin-right: auto;
+    margin-left: 10px;
+    margin-bottom: auto;
 }
 
 th, td {
@@ -115,7 +142,7 @@ th {
 }
 
 .bajo-peso {
-    background-color: #9fa9f6; 
+    background-color: #9fa9f6;
 }
 
 .adecuado {
@@ -123,18 +150,18 @@ th {
 }
 
 .sobrepeso {
-    background-color: rgb(255, 255, 147); 
+    background-color: rgb(255, 255, 147);
 }
 
 .obesidad-1 {
-    background-color: #fbcd6f; 
+    background-color: #fbcd6f;
 }
 
 .obesidad-2 {
-    background-color: #f78e6b; 
+    background-color: #f78e6b;
 }
 
 .obesidad-3 {
-    background-color: #ff7041; 
-    
+    background-color: #ff7041;
+
 }

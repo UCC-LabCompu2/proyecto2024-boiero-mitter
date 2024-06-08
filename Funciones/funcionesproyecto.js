@@ -3,7 +3,7 @@
 
  */
 
-function calcularIMC() {
+let calcularIMC=()=> {
     const genMasc= document.getElementById("masculino").checked;
     const genFem= document.getElementById("femenino").checked;
     const alturaMetros=document.getElementById("altura").value/100;
@@ -35,12 +35,7 @@ function calcularIMC() {
     window.open("index2.html");
 }
 
-
-function goto(path){
-    window.location = window.location.origin + path;
-}
-
-function mostrarImc(){
+let mostrarImc=()=>{
     console.log(localStorage.getItem("imc"));
     console.log(localStorage.getItem("clasificacion"));
 }
