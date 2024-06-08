@@ -12,7 +12,7 @@ Este proyecto consiste en una calculadora en línea que permite a los usuarios c
 
 
 ## Descripción
-Link del Proyecto [Calculadora IMC](https://ucc-labcompu2.github.io/proyecto2024-boiero-mitter/)
+Link del Proyecto [Calculadora IMC](https://ucc-labcompu2.github.io/proyecto2024-boiero-mitter/Index.html)
 
 El Índice de Masa Corporal (IMC) es una herramienta ampliamente utilizada para estimar la cantidad de grasa corporal de una persona, basándose en su peso y estatura. Este proyecto ofrece una descripción detallada de qué es el IMC, para qué sirve y cómo se calcula.
 
@@ -39,4 +39,5 @@ En la sección de "Recomendaciones", se proporcionan enlaces a nutricionistas en
 
 - HTML5
 - CSS3
+
 
