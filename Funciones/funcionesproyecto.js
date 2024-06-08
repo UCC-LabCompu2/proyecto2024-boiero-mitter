@@ -10,11 +10,11 @@ function calcularIMC() {
     const imc= document.getElementById("peso").value/ (alturaMetros*alturaMetros);
     let clasfificacion;
     if (isNaN(document.getElementById("peso").value) || isNaN(alturaMetros) || alturaMetros === 0) {
-        console.log(isNaN(document.getElementById("peso").value), isNaN(alturaMetros), alturaMetros === 0)
+        console.log(isNaN(document.getElementById("peso").value), isNaN(alturaMetros), alturaMetros === 0);
         alert("Por favor, ingrese valores válidos para peso y altura.");
         return;
     }else if (!genFem && !genMasc){
-        alert("Por favor, seleccione un género.")
+        alert("Por favor, seleccione un género.");
     }
     else if (imc<18.5){
         clasfificacion="Bajo peso";
@@ -29,15 +29,15 @@ function calcularIMC() {
     }else if (imc>=40){
         clasfificacion="Obesidad grado 3";
     }
-    goto("C:/Users/valen/OneDrive/Escritorio/proyecto2024-boiero-mitter/index2.html")
-    //goto("/proyecto2024-boiero-mitter/index2.html")
+
     localStorage.setItem("imc", imc.toString());
-    localStorage.setItem("clasificacion", clasfificacion)
+    localStorage.setItem("clasificacion", clasfificacion);
+    window.open("index2.html");
 }
 
 
 function goto(path){
-    window.location = window.location.origin + path
+    window.location = window.location.origin + path;
 }
 
 function mostrarImc(){
