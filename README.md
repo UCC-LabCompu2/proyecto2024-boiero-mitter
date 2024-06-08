@@ -16,6 +16,9 @@ Link del Proyecto [Calculadora IMC](file:///C:/Users/zoe/Documents/Segundo%20añ
 
 El Índice de Masa Corporal (IMC) es una herramienta ampliamente utilizada para estimar la cantidad de grasa corporal de una persona, basándose en su peso y estatura. Este proyecto ofrece una descripción detallada de qué es el IMC, para qué sirve y cómo se calcula.
 
+### Objetivo del Proyecto
+El objetivo de este proyecto es proporcionar una herramienta accesible y fácil de usar para que cualquier persona pueda calcular su Índice de Masa Corporal (IMC). Esta calculadora permite a los usuarios evaluar su peso en relación con su altura y obtener una clasificación según los estándares de la Organización Mundial de la Salud (OMS). Además, se ofrece orientación adicional para aquellos que busquen asesoramiento nutricional profesional.
+
 ## Funcionalidades
 
 - **Cálculo del IMC:** Los usuarios pueden ingresar su peso en kilogramos y su altura en centímetros para obtener su IMC.
