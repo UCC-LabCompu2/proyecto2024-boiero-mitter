@@ -16,10 +16,10 @@ let calcularIMC = () => {
     } else if (!genFem && !genMasc) {
         alert("Por favor, seleccione un género.");
         return;
-    }else if (peso <= 1 || peso >= 1000) {
+    }else if (document.getElementById("peso").value <= 1 || document.getElementById("peso").value >= 1000) {
         alert("Por favor, ingrese un peso válido entre 1 kg y 1000 kg.");
         return;
-    } else if (altura <= 0 || altura >= 300) {
+    } else if (document.getElementById("altura").value <= 0 || document.getElementById("altura").value >= 300) {
         alert("Por favor, ingrese una altura válida entre 1 cm y 300 cm.");
         return;
     }else if (imc < 18.5) {
@@ -38,8 +38,8 @@ let calcularIMC = () => {
 
     localStorage.setItem("imc", imc.toString());
     localStorage.setItem("clasificacion", clasfificacion);
-    dibujarTacometro();
     window.open("index2.html");
+    dibujarTacometro();
 }
 /**
  * Descripción: Dibuja un tacómetro en un elemento canvas y muestra la clasificación del IMC con colores y etiquetas del valor dado por la calculadora IMC.
@@ -102,7 +102,7 @@ let dibujarTacometro = () => {
      * Descripción: Dibuja la aguja del tacómetro que apunta al valor del IMC en el segmento correspondiente al valor dado.
      * @method dibujarAguja.
      * @param {CanvasRenderingContext2D} ctx - El contexto del canvas donde se dibuja la aguja.
-     * @param {number} imc - El valor del IMC a representar con la aguja.
+     * @param {string} imc - El valor del IMC a representar con la aguja.
      * @param {number} centerX - La coordenada X del centro del tacómetro.
      * @param {number} centerY - La coordenada Y del centro del tacómetro.
      * @param {number} radius - El radio del tacómetro.
