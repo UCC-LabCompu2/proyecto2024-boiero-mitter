@@ -1,9 +1,7 @@
 /**
  * Descripcion: Esta funcion lo que va hacer es, calcular el IMC de una persona mediante calculadora, y tambien va a comprobar que no haya ingresado datos invalidos.
- @param {string} id - El inputs de  masculino,femenino,altura, peso.
- @param {boolean}  -genMasc, genFem.
- @param {number} imc - El valor de los inputs en metros, yardas, pies, o pulgadas.
- @return
+ * @method calcularIMC.
+ * @return {void}
  */
 let calcularIMC = () => {
     const genMasc = document.getElementById("masculino").checked;
@@ -40,15 +38,18 @@ let calcularIMC = () => {
 
     localStorage.setItem("imc", imc.toString());
     localStorage.setItem("clasificacion", clasfificacion);
+    dibujarTacometro();
     window.open("index2.html");
-    mostrarImc();
-    dibujarTacometro(imc);
 }
-
-let dibujarTacometro = (imc) => {
+/**
+ * Descripción: Dibuja un tacómetro en un elemento canvas y muestra la clasificación del IMC con colores y etiquetas del valor dado por la calculadora IMC.
+ * @method dibujarTacometro.
+ * @return {void}
+ */
+let dibujarTacometro = () => {
+    const imc=localStorage.getItem("imc");
     const canvas = document.getElementById('tacometroCanvas');
     const ctx = canvas.getContext('2d');
-
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
     const radius = 400;
@@ -97,8 +98,17 @@ let dibujarTacometro = (imc) => {
         ctx.stroke();
         ctx.closePath();
     }
-
-    function dibujarAguja(ctx, imc, centerX, centerY, radius) {
+    /**
+     * Descripción: Dibuja la aguja del tacómetro que apunta al valor del IMC en el segmento correspondiente al valor dado.
+     * @method dibujarAguja.
+     * @param {CanvasRenderingContext2D} ctx - El contexto del canvas donde se dibuja la aguja.
+     * @param {number} imc - El valor del IMC a representar con la aguja.
+     * @param {number} centerX - La coordenada X del centro del tacómetro.
+     * @param {number} centerY - La coordenada Y del centro del tacómetro.
+     * @param {number} radius - El radio del tacómetro.
+     * @return {void}
+     */
+    function dibujarAguja(ctx, imc, centerX, centerY, radius){
         let angle;
         if (imc < 18.5) {
             angle = Math.PI + (Math.PI / 12);
