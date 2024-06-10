@@ -18,7 +18,13 @@ let calcularIMC = () => {
     } else if (!genFem && !genMasc) {
         alert("Por favor, seleccione un género.");
         return;
-    } else if (imc < 18.5) {
+    }else if (peso <= 1 || peso >= 1000) {
+        alert("Por favor, ingrese un peso válido entre 1 kg y 1000 kg.");
+        return;
+    } else if (altura <= 0 || altura >= 300) {
+        alert("Por favor, ingrese una altura válida entre 1 cm y 300 cm.");
+        return;
+    }else if (imc < 18.5) {
         clasfificacion = "Bajo peso";
     } else if (imc >= 18.5 && imc <= 24.9) {
         clasfificacion = "Peso adecuado";
@@ -39,15 +45,6 @@ let calcularIMC = () => {
     dibujarTacometro(imc);
 }
 
-
-let mostrarImc = () => {
-    const imc = localStorage.getItem("imc");
-    const clasificacion = localStorage.getItem("clasificacion");
-    document.getElementById("clasif").innerText = `Su indice IMC es: ${Math.round(imc * 100) / 100} con el valor ${clasificacion}`;
-}
-
-
-
 let dibujarTacometro = (imc) => {
     const canvas = document.getElementById('tacometroCanvas');
     const ctx = canvas.getContext('2d');
@@ -57,8 +54,6 @@ let dibujarTacometro = (imc) => {
     const radius = 400;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    dibujarAguja(ctx, imc, centerX, centerY, radius);
 
     const segments = [
         { start: Math.PI, end: Math.PI + Math.PI / 6, color: 'lightblue', label: 'Bajo peso' },
@@ -86,6 +81,8 @@ let dibujarTacometro = (imc) => {
         ctx.textAlign = 'center';
         ctx.fillText(segment.label, textX, textY);
     });
+
+    dibujarAguja(ctx, imc, centerX, centerY, radius);
 
 
     for (let i = 0; i <= 6; i++) {
@@ -118,10 +115,12 @@ let dibujarTacometro = (imc) => {
         }
 
 
+        const endX = centerX + (radius ) * Math.cos(angle);
+        const endY = centerY + (radius ) * Math.sin(angle);
+
+
         ctx.beginPath();
         ctx.moveTo(centerX, centerY);
-        const endX = centerX + (radius - 20) * Math.cos(angle);
-        const endY = centerY + (radius - 20) * Math.sin(angle);
         ctx.lineTo(endX, endY);
         ctx.lineWidth = 4;
         ctx.strokeStyle = 'black';
