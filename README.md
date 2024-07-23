@@ -1,6 +1,14 @@
 # PROYECTOLABCOMPUTOS2
 Este proyecto consiste en una calculadora en línea que permite a los usuarios calcular su Índice de Masa Corporal (IMC) fácilmente. El IMC es una medida simple que ayuda a evaluar el peso de una persona en relación con su altura.
 
+-[Autores](#autores)
+-[Descripcion](#descripción)
+-[Objetivo del Proyecto](#objetivo-del-proyecto)
+-[Funcionalidades](#funcionalidades)
+-[Intrucciones de Uso](#instrucciones-de-uso)
+-[Recomendacion](#recomendaciones)
+-[Tecnologia Utilizada](#tecnologías-utilizadas)
+
 ## Autores
 * **Boiero** Valentin
 * **Mitter** Zoe
