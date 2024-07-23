@@ -16,11 +16,11 @@ let calcularIMC = () => {
     } else if (!genFem && !genMasc) {
         alert("Por favor, seleccione un género.");
         return;
-    }else if (document.getElementById("peso").value <= 1 || document.getElementById("peso").value >= 1000) {
-        alert("Por favor, ingrese un peso válido entre 1 kg y 1000 kg.");
+    }else if (document.getElementById("peso").value <= 20 || document.getElementById("peso").value >= 1000) {
+        alert("Por favor, ingrese un peso válido entre 20 kg y 1000 kg.");
         return;
-    } else if (document.getElementById("altura").value <= 0 || document.getElementById("altura").value >= 300) {
-        alert("Por favor, ingrese una altura válida entre 1 cm y 300 cm.");
+    } else if (document.getElementById("altura").value < 110 || document.getElementById("altura").value >= 300) {
+        alert("Por favor, ingrese una altura válida entre 110 cm y 300 cm.");
         return;
     }else if (imc < 18.5) {
         clasfificacion = "Bajo peso";
@@ -39,15 +39,15 @@ let calcularIMC = () => {
     localStorage.setItem("imc", imc.toString());
     localStorage.setItem("clasificacion", clasfificacion);
     window.open("index2.html");
-    dibujarTacometro();
 }
+
 /**
  * Descripción: Dibuja un tacómetro en un elemento canvas y muestra la clasificación del IMC con colores y etiquetas del valor dado por la calculadora IMC.
  * @method dibujarTacometro.
  * @return {void}
  */
 let dibujarTacometro = () => {
-    const imc=localStorage.getItem("imc");
+    const imc = parseFloat(localStorage.getItem("imc"));
     const canvas = document.getElementById('tacometroCanvas');
     const ctx = canvas.getContext('2d');
     const centerX = canvas.width / 2;
@@ -73,7 +73,6 @@ let dibujarTacometro = () => {
         ctx.fill();
         ctx.closePath();
 
-
         const midAngle = (segment.start + segment.end) / 2;
         const textX = centerX + (radius - 60) * Math.cos(midAngle);
         const textY = centerY + (radius - 60) * Math.sin(midAngle);
@@ -83,8 +82,8 @@ let dibujarTacometro = () => {
         ctx.fillText(segment.label, textX, textY);
     });
 
-    dibujarAguja(ctx, imc, centerX, centerY, radius);
-
+    // Llamamos a la función de animación
+    iniciarAnimacionAguja(ctx, imc, centerX, centerY, radius);
 
     for (let i = 0; i <= 6; i++) {
         let angle = Math.PI + (i * Math.PI / 6);
@@ -98,43 +97,77 @@ let dibujarTacometro = () => {
         ctx.stroke();
         ctx.closePath();
     }
-    /**
-     * Descripción: Dibuja la aguja del tacómetro que apunta al valor del IMC en el segmento correspondiente al valor dado.
-     * @method dibujarAguja.
-     * @param {CanvasRenderingContext2D} ctx - El contexto del canvas donde se dibuja la aguja.
-     * @param {string} imc - El valor del IMC a representar con la aguja.
-     * @param {number} centerX - La coordenada X del centro del tacómetro.
-     * @param {number} centerY - La coordenada Y del centro del tacómetro.
-     * @param {number} radius - El radio del tacómetro.
-     * @return {void}
-     */
-    function dibujarAguja(ctx, imc, centerX, centerY, radius){
-        let angle;
-        if (imc < 18.5) {
-            angle = Math.PI + (Math.PI / 12);
-        } else if (imc < 25) {
-            angle = Math.PI + (Math.PI / 6) + (Math.PI / 12);
-        } else if (imc < 30) {
-            angle = Math.PI + (2 * Math.PI / 6) + (Math.PI / 12);
-        } else if (imc < 35) {
-            angle = Math.PI + (3 * Math.PI / 6) + (Math.PI / 12);
-        } else if (imc < 40) {
-            angle = Math.PI + (4 * Math.PI / 6) + (Math.PI / 12);
-        } else {
-            angle = Math.PI + (5 * Math.PI / 6) + (Math.PI / 12);
-        }
+}
 
+/**
+ * Descripción: Dibuja la aguja del tacómetro que apunta al valor del IMC en el segmento correspondiente al valor dado.
+ * @method dibujarAguja.
+ * @param {CanvasRenderingContext2D} ctx - El contexto del canvas donde se dibuja la aguja.
+ * @param {string} imc - El valor del IMC a representar con la aguja.
+ * @param {number} centerX - La coordenada X del centro del tacómetro.
+ * @param {number} centerY - La coordenada Y del centro del tacómetro.
+ * @param {number} radius - El radio del tacómetro.
+ * @return {void}
+ */
+function dibujarAguja(ctx, angle, centerX, centerY, radius) {
+    const endX = centerX + radius * Math.cos(angle);
+    const endY = centerY + radius * Math.sin(angle);
 
-        const endX = centerX + (radius ) * Math.cos(angle);
-        const endY = centerY + (radius ) * Math.sin(angle);
+    ctx.beginPath();
+    ctx.moveTo(centerX, centerY);
+    ctx.lineTo(endX, endY);
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = 'black';
+    ctx.stroke();
+    ctx.closePath();
+}
 
+/**
+ * Descripción: Inicia la animación de la aguja del tacómetro.
+ * @method iniciarAnimacionAguja.
+ * @param {CanvasRenderingContext2D} ctx - El contexto del canvas donde se dibuja la aguja.
+ * @param {number} imc - El valor del IMC a representar con la aguja.
+ * @param {number} centerX - La coordenada X del centro del tacómetro.
+ * @param {number} centerY - La coordenada Y del centro del tacómetro.
+ * @param {number} radius - El radio del tacómetro.
+ * @return {void}
+ */
+function iniciarAnimacionAguja(ctx, imc, centerX, centerY, radius) {
+    let startAngle = Math.PI;
+    let endAngle;
 
-        ctx.beginPath();
-        ctx.moveTo(centerX, centerY);
-        ctx.lineTo(endX, endY);
-        ctx.lineWidth = 4;
-        ctx.strokeStyle = 'black';
-        ctx.stroke();
-        ctx.closePath();
+    if (imc < 18.5) {
+        endAngle = Math.PI + (Math.PI / 6);
+    } else if (imc < 25) {
+        endAngle = Math.PI + (2 * Math.PI / 6);
+    } else if (imc < 30) {
+        endAngle = Math.PI + (3 * Math.PI / 6);
+    } else if (imc < 35) {
+        endAngle = Math.PI + (4 * Math.PI / 6);
+    } else if (imc < 40) {
+        endAngle = Math.PI + (5 * Math.PI / 6);
+    } else {
+        endAngle = 2 * Math.PI;
     }
+
+    let currentAngle = startAngle;
+    const step = (endAngle - startAngle) / 100;
+    let animationFrameId;
+
+    function animate() {
+        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+        // Redibujar el tacómetro
+        dibujarTacometro();
+
+        // Dibujar la aguja
+        dibujarAguja(ctx, currentAngle, centerX, centerY, radius);
+        currentAngle += step;
+        if (currentAngle <= endAngle) {
+            animationFrameId = requestAnimationFrame(animate);
+        } else {
+            cancelAnimationFrame(animationFrameId);
+        }
+    }
+
+    animate();
 }
