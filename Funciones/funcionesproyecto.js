@@ -1,3 +1,5 @@
+let angle = 0;
+
 /**
  * Descripcion: Esta funcion lo que va hacer es, calcular el IMC de una persona mediante calculadora, y tambien va a comprobar que no haya ingresado datos invalidos.
  * @method calcularIMC.
@@ -16,13 +18,13 @@ let calcularIMC = () => {
     } else if (!genFem && !genMasc) {
         alert("Por favor, seleccione un género.");
         return;
-    }else if (document.getElementById("peso").value <= 20 || document.getElementById("peso").value >= 1000) {
+    } else if (document.getElementById("peso").value <= 20 || document.getElementById("peso").value >= 1000) {
         alert("Por favor, ingrese un peso válido entre 20 kg y 1000 kg.");
         return;
     } else if (document.getElementById("altura").value < 110 || document.getElementById("altura").value >= 300) {
         alert("Por favor, ingrese una altura válida entre 110 cm y 300 cm.");
         return;
-    }else if (imc < 18.5) {
+    } else if (imc < 18.5) {
         clasfificacion = "Bajo peso";
     } else if (imc >= 18.5 && imc <= 24.9) {
         clasfificacion = "Peso adecuado";
@@ -82,9 +84,6 @@ let dibujarTacometro = () => {
         ctx.fillText(segment.label, textX, textY);
     });
 
-    // Llamamos a la función de animación
-    iniciarAnimacionAguja(ctx, imc, centerX, centerY, radius);
-
     for (let i = 0; i <= 6; i++) {
         let angle = Math.PI + (i * Math.PI / 6);
         let x = centerX + radius * Math.cos(angle);
@@ -97,6 +96,9 @@ let dibujarTacometro = () => {
         ctx.stroke();
         ctx.closePath();
     }
+
+    // Llamamos a la función de animación
+    iniciarAnimacionAguja(ctx, imc, centerX, centerY, radius);
 }
 
 /**
