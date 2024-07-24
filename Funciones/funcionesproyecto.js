@@ -1,3 +1,5 @@
+let angle = 0;
+
 /**
  * Descripcion: Esta funcion lo que va hacer es, calcular el IMC de una persona mediante calculadora, y tambien va a comprobar que no haya ingresado datos invalidos.
  * @method calcularIMC.
@@ -7,8 +9,12 @@ let calcularIMC = () => {
     const genMasc = document.getElementById("masculino").checked;
     const genFem = document.getElementById("femenino").checked;
     const alturaMetros = document.getElementById("altura").value / 100;
+<<<<<<< HEAD
     const peso = document.getElementById("peso").value;
     const imc = peso / (alturaMetros * alturaMetros);
+=======
+    const imc = document.getElementById("peso").value / (alturaMetros * alturaMetros);
+>>>>>>> dc701318f582bfa30b6cee8aaeab688086bcb5fb
     let clasfificacion;
 
     if (isNaN(peso) || isNaN(alturaMetros) || alturaMetros === 0) {
@@ -18,6 +24,7 @@ let calcularIMC = () => {
     } else if (!genFem && !genMasc) {
         alert("Por favor, seleccione un género.");
         return;
+<<<<<<< HEAD
     } else if (peso <= 1 || peso >= 1000) {
         alert("Por favor, ingrese un peso válido entre 1 kg y 1000 kg.");
         return;
@@ -25,6 +32,15 @@ let calcularIMC = () => {
         alert("Por favor, ingrese una altura válida entre 1 cm y 300 cm.");
         return;
     } else if (imc < 18.5) {
+=======
+    }else if (document.getElementById("peso").value <= 20 || document.getElementById("peso").value >= 1000) {
+        alert("Por favor, ingrese un peso válido entre 20 kg y 1000 kg.");
+        return;
+    } else if (document.getElementById("altura").value < 110 || document.getElementById("altura").value >= 300) {
+        alert("Por favor, ingrese una altura válida entre 110 cm y 300 cm.");
+        return;
+    }else if (imc < 18.5) {
+>>>>>>> dc701318f582bfa30b6cee8aaeab688086bcb5fb
         clasfificacion = "Bajo peso";
     } else if (imc >= 18.5 && imc <= 24.9) {
         clasfificacion = "Peso adecuado";
@@ -44,6 +60,7 @@ let calcularIMC = () => {
     window.open("index2.html");
 }
 
+<<<<<<< HEAD
 /**
  * Descripción: Dibuja un tacómetro en un elemento canvas y muestra la clasificación del IMC con colores y etiquetas del valor dado por la calculadora IMC.
  * @method dibujarTacometro.
@@ -66,6 +83,39 @@ let dibujarTacometro = () => {
         { start: Math.PI + 3 * Math.PI / 6, end: Math.PI + 4 * Math.PI / 6, color: 'orange', label: 'Obesidad grado 1' },
         { start: Math.PI + 4 * Math.PI / 6, end: Math.PI + 5 * Math.PI / 6, color: 'lightpink', label: 'Obesidad grado 2' },
         { start: Math.PI + 5 * Math.PI / 6, end: 2 * Math.PI, color: 'red', label: 'Obesidad grado 3' }
+=======
+
+
+/**
+ * Descripción: Dibuja un tacómetro en un elemento canvas y muestra la clasificación del IMC con colores y etiquetas del valor dado por la calculadora IMC.
+ * @method dibujarTacometro.
+ * @return {void}
+ */
+let startangle = Math.PI, endAngle;
+let animationFrameID;
+let dibujarTacometro = () => {
+    const imc = parseFloat(localStorage.getItem("imc"));
+    const canvas = document.getElementById('tacometroCanvas');
+    const ctx = canvas.getContext('2d');
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+    const radius = 400;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    const segments = [
+        {start: Math.PI, end: Math.PI + Math.PI / 6, color: 'lightblue', label: 'Bajo peso'},
+        {start: Math.PI + Math.PI / 6, end: Math.PI + 2 * Math.PI / 6, color: 'green', label: 'Adecuado'},
+        {start: Math.PI + 2 * Math.PI / 6, end: Math.PI + 3 * Math.PI / 6, color: 'yellow', label: 'Sobrepeso'},
+        {start: Math.PI + 3 * Math.PI / 6, end: Math.PI + 4 * Math.PI / 6, color: 'orange', label: 'Obesidad grado 1'},
+        {
+            start: Math.PI + 4 * Math.PI / 6,
+            end: Math.PI + 5 * Math.PI / 6,
+            color: 'lightpink',
+            label: 'Obesidad grado 2'
+        },
+        {start: Math.PI + 5 * Math.PI / 6, end: 2 * Math.PI, color: 'red', label: 'Obesidad grado 3'}
+>>>>>>> dc701318f582bfa30b6cee8aaeab688086bcb5fb
     ];
 
     segments.forEach(segment => {
@@ -85,10 +135,13 @@ let dibujarTacometro = () => {
         ctx.fillText(segment.label, textX, textY);
     });
 
+<<<<<<< HEAD
     setTimeout(() => {
         animateNeedle(ctx, imc, centerX, centerY, radius);
     }, 3000);
     
+=======
+>>>>>>> dc701318f582bfa30b6cee8aaeab688086bcb5fb
     for (let i = 0; i <= 6; i++) {
         let angle = Math.PI + (i * Math.PI / 6);
         let x = centerX + radius * Math.cos(angle);
@@ -97,6 +150,7 @@ let dibujarTacometro = () => {
         ctx.moveTo(centerX, centerY);
         ctx.lineTo(x, y);
         ctx.lineWidth = 0.5;
+<<<<<<< HEAD
         ctx.strokeStyle = 'white';
         ctx.stroke();
         ctx.closePath();
@@ -116,6 +170,31 @@ let dibujarTacometro = () => {
 function dibujarAguja(ctx, angle, centerX, centerY, radius) {
     const endX = centerX + (radius) * Math.cos(angle);
     const endY = centerY + (radius) * Math.sin(angle);
+=======
+        ctx.strokeStyle = 'black';
+        ctx.stroke();
+        ctx.closePath();
+    }
+
+    if (imc < 18.5) {
+        endAngle = Math.PI + (Math.PI / 6);
+    } else if (imc >= 18.5 && imc <= 24.9) {
+        endAngle = Math.PI + (2 * Math.PI / 6);
+    } else if (imc >= 25 && imc <= 29.9) {
+        endAngle = Math.PI + (3 * Math.PI / 6);
+    } else if (imc >= 35 && imc <= 39.9) {
+        endAngle = Math.PI + (4 * Math.PI / 6);
+    } else if (imc >= 40) {
+        endAngle = Math.PI + (5 * Math.PI / 6);
+    } else {
+        endAngle = 2 * Math.PI;
+    }
+
+
+    startangle += 0.03;
+    const endX = centerX + radius * Math.cos(startangle);
+    const endY = centerY + radius * Math.sin(startangle);
+>>>>>>> dc701318f582bfa30b6cee8aaeab688086bcb5fb
 
     ctx.beginPath();
     ctx.moveTo(centerX, centerY);
@@ -124,6 +203,7 @@ function dibujarAguja(ctx, angle, centerX, centerY, radius) {
     ctx.strokeStyle = 'black';
     ctx.stroke();
     ctx.closePath();
+<<<<<<< HEAD
 }
 
 /**
@@ -171,3 +251,15 @@ function animateNeedle(ctx, imc, centerX, centerY, radius) {
 
     stepAnimation();
 }
+=======
+
+    console.log(`El starangle es: ${startangle},el endangle es: ${endAngle}`);
+    if (startangle <= endAngle) {
+        animationFrameID = requestAnimationFrame(dibujarTacometro);
+    } else {
+        cancelAnimationFrame(animationFrameID);
+    }
+}
+
+
+>>>>>>> dc701318f582bfa30b6cee8aaeab688086bcb5fb

@@ -16,6 +16,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100%, 100%;
+    overflow: hidden;
 
 }
 .image {
@@ -162,5 +163,5 @@ th {
 
 .obesidad-3 {
     background-color: #ff7041;
-
 }
+
